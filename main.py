@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 import time
 
-model = YOLO("yolov8m.pt")
+model = YOLO("yolov8n.pt")
 
 cap = cv2.VideoCapture(0)
 
@@ -14,11 +14,7 @@ while True:
     if not ret:
         break
 
-    results = model(
-    frame,
-    conf=0.6,
-    imgsz=1280
-)
+    results = model(frame, conf=0.3)
 
     annotated_frame = results[0].plot()
 
